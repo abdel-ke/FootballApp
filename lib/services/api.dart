@@ -21,7 +21,6 @@ api(String url) async {
     var parsedJson = jsonDecode(responseBody);
     return parsedJson;
   } else {
-    print('error : ${response.reasonPhrase}');
     return null;
   }
 }

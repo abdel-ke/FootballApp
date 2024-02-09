@@ -11,7 +11,7 @@ class PlayerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.orange,
+          backgroundColor: Theme.of(context).colorScheme.onBackground,
           centerTitle: true,
           title: const Text('Player Information'),
         ),
@@ -60,7 +60,7 @@ class PlayerScreen extends StatelessWidget {
     }
     return Container(
       decoration: BoxDecoration(
-        color: Colors.orange.shade200,
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(20),
       ),
       margin: const EdgeInsets.symmetric(vertical: 10),
@@ -155,147 +155,46 @@ class PlayerScreen extends StatelessWidget {
     );
   }
 
+  // this function creates a card that has Height, Weight, Age, Team, Position, and Birth Date
   Wrap detailsCard(BuildContext context, PlayerProfile playerData) {
     return Wrap(
       alignment: WrapAlignment.center,
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
-        Container(
-          width: 120,
-          margin: const EdgeInsets.all(1),
-          padding: const EdgeInsets.all(10),
-          height: 100,
-          decoration: BoxDecoration(
-            color: Colors.orange.shade200,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Height'),
-              Text(
-                playerData.player.height,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          width: 120,
-          height: 100,
-          margin: const EdgeInsets.all(1),
-          padding: const EdgeInsets.all(10),
-          // color: Theme.of(context).colorScheme.primary,
-          decoration: BoxDecoration(
-            // color: Theme.of(context).colorScheme.primary,
-            color: Colors.orange.shade200,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Weight'),
-              Text(
-                playerData.player.weight,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          width: 120,
-          height: 100,
-          margin: const EdgeInsets.all(1),
-          decoration: BoxDecoration(
-            // color: Theme.of(context).colorScheme.primary,
-            color: Colors.orange.shade200,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          // color: Theme.of(context).colorScheme.primary,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Age'),
-              Text(
-                playerData.player.age.toString(),
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          width: 120,
-          height: 100,
-          margin: const EdgeInsets.all(1),
-          padding: const EdgeInsets.all(10),
-          // color: Theme.of(context).colorScheme.primary,
-          decoration: BoxDecoration(
-            // color: Theme.of(context).colorScheme.primary,
-            color: Colors.orange.shade200,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const FittedBox(child: Text('Team')),
-              FittedBox(
-                child: Text(
-                  playerData.statistics[0].team.name,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          width: 120,
-          height: 100,
-          margin: const EdgeInsets.all(1),
-          // color: Theme.of(context).colorScheme.primary,
-          decoration: BoxDecoration(
-            // color: Theme.of(context).colorScheme.primary,
-            color: Colors.orange.shade200,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const FittedBox(child: Text('Position')),
-              FittedBox(
-                child: Text(
-                  playerData.statistics[0].games.position,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.all(1),
-          width: 120,
-          height: 100,
-          // color: Theme.of(context).colorScheme.primary,
-          decoration: BoxDecoration(
-            // color: Theme.of(context).colorScheme.primary,
-            color: Colors.orange.shade200,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          // appearences
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const FittedBox(child: Text('Birth Date')),
-              FittedBox(
-                child: Text(
-                  // playerData.statistics[0].games.appearences.toString(),
-                  playerData.player.date,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
-        ),
+        playerCardHelper(context, 'Height', playerData.player.height),
+        playerCardHelper(context, 'Weight', playerData.player.weight),
+        playerCardHelper(context, 'Age', '${playerData.player.age}'),
+        playerCardHelper(context, 'Team', playerData.statistics[0].team.name),
+        playerCardHelper(
+            context, 'Position', playerData.statistics[0].games.position),
+        playerCardHelper(context, 'Birth Date', playerData.player.date),
       ],
+    );
+  }
+
+  // this function creates a card that has Height, Weight, Age, Team, Position, and Birth Date
+  Container playerCardHelper(BuildContext context, String name, String value) {
+    return Container(
+      width: 120,
+      height: 100,
+      margin: const EdgeInsets.all(1),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(name),
+          FittedBox(
+            child: Text(
+              value,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

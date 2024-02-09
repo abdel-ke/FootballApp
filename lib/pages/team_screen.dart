@@ -14,7 +14,7 @@ class TeamScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
-          backgroundColor: Colors.orange,
+          backgroundColor: Theme.of(context).colorScheme.onBackground,
           centerTitle: true,
           title: const Text(
             'Team Information',

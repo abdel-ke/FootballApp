@@ -26,9 +26,8 @@ class LastMatchesInfo extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10),
                 height: 400,
                 decoration: BoxDecoration(
-                    color: Colors.orange.shade300,
+                    color: Theme.of(context).colorScheme.secondary,
                     borderRadius: BorderRadius.circular(10)),
-                // color: Colors.orange.shade100,
                 child: ListView.builder(
                     itemCount: lastMatches!.length,
                     itemBuilder: (context, index) {
@@ -42,8 +41,7 @@ class LastMatchesInfo extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 10),
                         decoration: BoxDecoration(
-                          // color: Theme.of(context).colorScheme.primary,
-                          color: Colors.orange.shade100,
+                          color: Theme.of(context).colorScheme.primary,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Row(

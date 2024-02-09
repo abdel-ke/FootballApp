@@ -15,8 +15,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController controller = TextEditingController();
+  // this map is used to store the selected teams
   Map<String, int> selectedTeams = {};
 
+  // this function is used to select the team and add it to the selectedTeams map
   selectTeam(Map<String, int> selectedTeams, String name, int id) {
     if (selectedTeams.containsValue(id)) return;
     if (selectedTeams.length == 3) {
@@ -27,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // this function is used to search for a team
   searchTeam() async {
     try {
       List<Team> team = await fetchTeam(controller.text);
@@ -44,11 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 238, 227, 209),
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.orange,
-          // backgroundColor: Theme.of(context).colorScheme.secondary,
+          backgroundColor: Theme.of(context).colorScheme.onBackground,
           title: const Text(
             'Football App',
           )),
@@ -99,11 +101,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           },
                           child: Chip(
                               backgroundColor:
-                                  Colors.orange.shade100.withOpacity(0.5),
+                                  Theme.of(context).colorScheme.primary.withOpacity(0.5),
                               label: Text(
                                 e,
                                 style: const TextStyle(
-                                    // color: Colors.orange,
                                     fontWeight: FontWeight.bold),
                               ),
                               onDeleted: () {
@@ -113,7 +114,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
-                                side: const BorderSide(color: Colors.orange),
+                                side: BorderSide(
+                                  color: Theme.of(context).colorScheme.onBackground,
+                                  ),
                               )),
                         ),
                       ))
@@ -129,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> modalSheet(
       BuildContext context, List<Team> team, TextEditingController controller) {
     return showModalBottomSheet<void>(
-        backgroundColor: Colors.orange.shade50,
+        backgroundColor: Theme.of(context).colorScheme.background,
         context: context,
         builder: (BuildContext context) {
           return GridView.builder(
@@ -155,9 +158,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.orange.withOpacity(0.1),
+                      color: Theme.of(context).colorScheme.primary,
                       border: Border.all(
-                        color: Colors.orange,
+                        color: Theme.of(context).colorScheme.onBackground,
                         width: 2,
                       ),
                     ),

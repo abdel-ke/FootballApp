@@ -14,10 +14,8 @@ class LeagueHistory extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: DataTable(
           border: TableBorder.all(color: Colors.white, width: 1),
-          // border: TableBorder.symmetric(
-          // outside: const BorderSide(color: Colors.black, width: 1)),
           headingRowColor: MaterialStateProperty.resolveWith((states) {
-            return Colors.orange;
+            return Theme.of(context).colorScheme.onBackground;
           }),
           columns: <DataColumn>[
             const DataColumn(label: Center(child: Text('League'))),
@@ -61,8 +59,7 @@ class LeagueHistory extends StatelessWidget {
                       // use pair color for each row
                       color: MaterialStateProperty.resolveWith((states) {
                         return statistics.indexOf(e) % 2 == 0
-                            ? Colors.orange.shade50
-                            : Colors.orange.shade100;
+                        ? Theme.of(context).colorScheme.background : Theme.of(context).colorScheme.primary;
                       }),
                       cells: [
                         DataCell(

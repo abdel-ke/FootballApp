@@ -28,7 +28,7 @@ class CurrentPlayers extends StatelessWidget {
             return Container(
               margin: const EdgeInsets.only(top: 10),
               decoration: BoxDecoration(
-                  color: Colors.orange.shade100,
+                  color: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(10)),
               height: 180,
               child: ListView.builder(
@@ -49,8 +49,7 @@ class CurrentPlayers extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         width: 120,
                         decoration: BoxDecoration(
-                            color: Colors.orange.shade300,
-                            // color: Theme.of(context).colorScheme.primary,
+                            color: Theme.of(context).colorScheme.secondary,
                             borderRadius: BorderRadius.circular(8)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

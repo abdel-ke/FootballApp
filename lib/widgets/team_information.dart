@@ -12,11 +12,9 @@ class TeamInformation extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.orange.shade100,
-          // color: Theme.of(context).colorScheme.primary,
+          color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(8)),
       child: Wrap(
-        // mainAxisAlignment: MainAxisAlignment.center,
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
