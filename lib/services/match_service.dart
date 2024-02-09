@@ -12,9 +12,7 @@ Future<List<LastsMatches>> fetchLastMatches(int id) async {
 }
 
 Future<NextMatch> fetchNextMatch(int id) async {
-  if ((nextMatch['response'] as List<dynamic>).isEmpty) {
-    return NextMatch.empty();
-  }
+  if ((nextMatch['response'] as List<dynamic>).isEmpty) return NextMatch.empty();
   return NextMatch.fromJson(nextMatch['response'][0]);
   // return NextMatch.fromJson(nextMatch['response'] as List<dynamic>);
   // ---------------------------------------

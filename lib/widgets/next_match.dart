@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:football/models/matche.dart';
 import 'package:football/services/match_service.dart';
+import 'package:football/widgets/circular_progress.dart';
 import 'package:football/widgets/custom_image.dart';
+import 'package:football/widgets/error_data.dart';
 
 class NextMatchInfo extends StatelessWidget {
   const NextMatchInfo({super.key, required this.id});
@@ -13,34 +15,15 @@ class NextMatchInfo extends StatelessWidget {
         future: fetchNextMatch(id),
         builder: ((context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const SizedBox(
-              height: 150,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
+            return const CircularProgress(height: 150);
           }
           if (snapshot.hasError) {
-            print('next error: ${snapshot.error}');
-            return Container(
-              height: 150,
-              color: Theme.of(context).colorScheme.primary,
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(10),
-              child: Center(
-                  child: FittedBox(
-                child: Text(
-                  'Error: ${snapshot.error}',
-                  style: const TextStyle(
-                      color: Colors.red, fontWeight: FontWeight.bold),
-                ),
-              )),
-            );
+            return ErrorData(message: snapshot.error.toString(), height: 150);
           }
           if (snapshot.hasData) {
             final NextMatch match = snapshot.data!;
             final DateTime date;
-            print('date: |${match.date}|');
+
             if (match.date != '-') {
               date = DateTime.parse(match.date);
             } else {
@@ -50,7 +33,8 @@ class NextMatchInfo extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10),
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Colors.orange.shade100,
+                    // color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(8)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

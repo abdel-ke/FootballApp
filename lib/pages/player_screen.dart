@@ -11,7 +11,7 @@ class PlayerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // backgroundColor: Theme.of(context).colorScheme.primary,
+          backgroundColor: Colors.orange,
           centerTitle: true,
           title: const Text('Player Information'),
         ),
@@ -36,12 +36,11 @@ class PlayerScreen extends StatelessWidget {
             }));
   }
 
-  SingleChildScrollView playerPage(
-      BuildContext context, PlayerProfile playerData) {
-    return SingleChildScrollView(
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(10),
+  SafeArea playerPage(BuildContext context, PlayerProfile playerData) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               playerProfile(context, playerData),
@@ -54,17 +53,120 @@ class PlayerScreen extends StatelessWidget {
     );
   }
 
+  Container playerProfile(BuildContext context, PlayerProfile playerData) {
+    int count = 0;
+    for (var element in playerData.statistics) {
+      count += element.goals;
+    }
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.orange.shade200,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.all(10),
+      width: double.infinity,
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(100),
+            child: Image.network(
+              playerData.player.photo,
+              width: 100,
+            ),
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FittedBox(
+                child: Text(
+                  playerData.player.name,
+                  // overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ),
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                alignment: WrapAlignment.center,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.network(
+                      playerData.statistics[0].team.logo,
+                      width: 25,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  FittedBox(
+                    child: Text(
+                      playerData.statistics[0].team.name,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+              RichText(
+                text: TextSpan(
+                  style: DefaultTextStyle.of(context).style,
+                  children: [
+                    const WidgetSpan(
+                      child: Icon(
+                        Icons.home_outlined,
+                        size: 20,
+                      ), // Replace with your preferred icon
+                    ),
+                    const WidgetSpan(child: SizedBox(width: 5)),
+                    TextSpan(
+                      text: playerData.player.national,
+                    ),
+                  ],
+                ),
+              ),
+              RichText(
+                text: TextSpan(
+                  style: DefaultTextStyle.of(context).style,
+                  children: [
+                    const WidgetSpan(
+                      child: Icon(
+                        Icons.sports_soccer,
+                        size: 20,
+                      ), // Replace with your preferred icon
+                    ),
+                    const WidgetSpan(child: SizedBox(width: 5)),
+                    TextSpan(
+                      text: '$count',
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   Wrap detailsCard(BuildContext context, PlayerProfile playerData) {
     return Wrap(
       alignment: WrapAlignment.center,
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
         Container(
-          width: 125,
+          width: 120,
           margin: const EdgeInsets.all(1),
+          padding: const EdgeInsets.all(10),
           height: 100,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: Colors.orange.shade200,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
@@ -79,12 +181,14 @@ class PlayerScreen extends StatelessWidget {
           ),
         ),
         Container(
-          width: 125,
-          margin: const EdgeInsets.all(1),
+          width: 120,
           height: 100,
+          margin: const EdgeInsets.all(1),
+          padding: const EdgeInsets.all(10),
           // color: Theme.of(context).colorScheme.primary,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            // color: Theme.of(context).colorScheme.primary,
+            color: Colors.orange.shade200,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
@@ -99,11 +203,12 @@ class PlayerScreen extends StatelessWidget {
           ),
         ),
         Container(
-          width: 125,
-          margin: const EdgeInsets.all(1),
+          width: 120,
           height: 100,
+          margin: const EdgeInsets.all(1),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            // color: Theme.of(context).colorScheme.primary,
+            color: Colors.orange.shade200,
             borderRadius: BorderRadius.circular(10),
           ),
           // color: Theme.of(context).colorScheme.primary,
@@ -119,12 +224,14 @@ class PlayerScreen extends StatelessWidget {
           ),
         ),
         Container(
-          width: 125,
-          margin: const EdgeInsets.all(1),
+          width: 120,
           height: 100,
+          margin: const EdgeInsets.all(1),
+          padding: const EdgeInsets.all(10),
           // color: Theme.of(context).colorScheme.primary,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            // color: Theme.of(context).colorScheme.primary,
+            color: Colors.orange.shade200,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
@@ -141,12 +248,13 @@ class PlayerScreen extends StatelessWidget {
           ),
         ),
         Container(
-          width: 125,
-          margin: const EdgeInsets.all(1),
+          width: 120,
           height: 100,
+          margin: const EdgeInsets.all(1),
           // color: Theme.of(context).colorScheme.primary,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            // color: Theme.of(context).colorScheme.primary,
+            color: Colors.orange.shade200,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
@@ -163,12 +271,13 @@ class PlayerScreen extends StatelessWidget {
           ),
         ),
         Container(
-          width: 125,
           margin: const EdgeInsets.all(1),
+          width: 120,
           height: 100,
           // color: Theme.of(context).colorScheme.primary,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            // color: Theme.of(context).colorScheme.primary,
+            color: Colors.orange.shade200,
             borderRadius: BorderRadius.circular(10),
           ),
           // appearences
@@ -187,107 +296,6 @@ class PlayerScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Container playerProfile(BuildContext context, PlayerProfile playerData) {
-    int count = 0;
-    for (var element in playerData.statistics) {
-      count += element.goals;
-    }
-    return Container(
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding: const EdgeInsets.all(10),
-      child: Row(
-        // alignment: WrapAlignment.center,
-        children: [
-          Container(
-            width: 100,
-            height: 100,
-            margin: const EdgeInsets.symmetric(horizontal: 15),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image.network(playerData.player.photo),
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FittedBox(
-                  child: Text(
-                    playerData.player.name,
-                    // overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                ),
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  alignment: WrapAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 30,
-                      height: 30,
-                      // margin:
-                      //     const EdgeInsets.symmetric(horizontal: 15),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child:
-                            Image.network(playerData.statistics[0].team.logo),
-                      ),
-                    ),
-                    FittedBox(
-                      child: Text(
-                        playerData.statistics[0].team.name,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-                RichText(
-                  text: TextSpan(
-                    style: DefaultTextStyle.of(context).style,
-                    children: [
-                      const WidgetSpan(
-                        child: Icon(
-                          Icons.home_outlined,
-                          size: 20,
-                        ), // Replace with your preferred icon
-                      ),
-                      TextSpan(
-                        text: playerData.player.national,
-                      ),
-                    ],
-                  ),
-                ),
-                RichText(
-                  text: TextSpan(
-                    style: DefaultTextStyle.of(context).style,
-                    children: [
-                      const WidgetSpan(
-                        child: Icon(
-                          Icons.sports_soccer,
-                          size: 20,
-                        ), // Replace with your preferred icon
-                      ),
-                      TextSpan(
-                        text: '$count',
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-      ),
     );
   }
 }

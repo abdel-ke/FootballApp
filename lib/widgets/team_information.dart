@@ -9,32 +9,36 @@ class TeamInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
       padding: const EdgeInsets.all(10),
+      width: double.infinity,
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
+          color: Colors.orange.shade100,
+          // color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(8)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
         children: [
-          Expanded(child: CustomImage(logo: team.logo, name: team.name)),
-          Expanded(
-            child: Column(
-              children: [
-                FittedBox(
-                  child: Text(team.name,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20)),
+          CustomImage(logo: team.logo, name: team.name),
+          const SizedBox(
+            width: 15,
+          ),
+          Column(
+            children: [
+              FittedBox(
+                child: Text(team.name,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 20)),
+              ),
+              FittedBox(
+                child: Text(
+                  team.country,
+                  style: const TextStyle(fontSize: 18),
                 ),
-                FittedBox(
-                  child: Text(
-                    team.country,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                ),
-                FittedBox(child: Text(team.code)),
-              ],
-            ),
+              ),
+              FittedBox(child: Text(team.code)),
+            ],
           ),
         ],
       ),

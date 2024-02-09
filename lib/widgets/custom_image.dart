@@ -10,16 +10,16 @@ class CustomImage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          width: 100,
-          height: 100,
-          margin: const EdgeInsets.symmetric(horizontal: 15),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: Image.network(logo),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: Image.network(
+            logo,
+            width: 80,
           ),
         ),
-        FittedBox(child: Text(name)),
+        FittedBox(
+            child: Text(name,
+                style: const TextStyle(fontWeight: FontWeight.w500))),
       ],
     );
   }

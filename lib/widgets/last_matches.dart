@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:football/models/matche.dart';
 import 'package:football/services/match_service.dart';
+import 'package:football/widgets/circular_progress.dart';
 import 'package:football/widgets/custom_image.dart';
+import 'package:football/widgets/error_data.dart';
 
 class LastMatchesInfo extends StatelessWidget {
   const LastMatchesInfo({super.key, required this.id});
@@ -13,45 +15,35 @@ class LastMatchesInfo extends StatelessWidget {
         future: fetchLastMatches(id),
         builder: (context, snaphot) {
           if (snaphot.connectionState == ConnectionState.waiting) {
-            return const SizedBox(
-              height: 400,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
+            return const CircularProgress(height: 400);
           }
           if (snaphot.hasError) {
-            print('Last error: ${snaphot.error}');
-            return Container(
-              height: 400,
-              color: Theme.of(context).colorScheme.primary,
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(10),
-              child: Center(
-                child: FittedBox(
-                  child: Text(
-                    'Error: ${snaphot.error}',
-                    style: const TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            );
+            return ErrorData(message: snaphot.error.toString(), height: 400);
           }
           if (snaphot.hasData) {
             final List<LastsMatches>? lastMatches = snaphot.data;
             return Container(
                 margin: const EdgeInsets.only(top: 10),
                 height: 400,
+                decoration: BoxDecoration(
+                    color: Colors.orange.shade300,
+                    borderRadius: BorderRadius.circular(10)),
+                // color: Colors.orange.shade100,
                 child: ListView.builder(
                     itemCount: lastMatches!.length,
                     itemBuilder: (context, index) {
                       final LastsMatches match = lastMatches[index];
                       return Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        margin: EdgeInsets.only(
+                            top: 10,
+                            right: 10,
+                            left: 10,
+                            bottom: index == lastMatches.length - 1 ? 10 : 2),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5, horizontal: 10),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary,
+                          // color: Theme.of(context).colorScheme.primary,
+                          color: Colors.orange.shade100,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Row(
@@ -63,32 +55,34 @@ class LastMatchesInfo extends StatelessWidget {
                             ),
                             Expanded(
                               child: Column(children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      match.homeGoals.toString(),
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
-                                          color: checkColor(match.home.winner)),
+                                RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                    const SizedBox(width: 10),
-                                    const Text(
-                                      '-',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Text(
-                                      match.awayGoals.toString(),
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 20,
-                                          color: checkColor(match.away.winner)),
-                                    ),
-                                  ],
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: '${match.homeGoals}',
+                                        style: TextStyle(
+                                          color: checkColor(match.home.winner),
+                                        ),
+                                      ),
+                                      const TextSpan(
+                                        text: ' - ',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '${match.awayGoals}',
+                                        style: TextStyle(
+                                          color: checkColor(match.away.winner),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 FittedBox(
                                     child: Text(match.name,
@@ -109,13 +103,7 @@ class LastMatchesInfo extends StatelessWidget {
                       );
                     }));
           }
-          return const Center(
-              child: SizedBox(
-            height: 400,
-            child: Text('No data',
-                style:
-                    TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
-          ));
+          return const ErrorData(message: 'No data!', height: 400);
         });
   }
 }

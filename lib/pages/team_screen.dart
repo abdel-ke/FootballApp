@@ -14,14 +14,14 @@ class TeamScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
-          // backgroundColor: Theme.of(context).colorScheme.primary,
+          backgroundColor: Colors.orange,
           centerTitle: true,
           title: const Text(
             'Team Information',
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
           child: SingleChildScrollView(
             child: Column(
               children: [

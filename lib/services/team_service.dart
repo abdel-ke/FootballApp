@@ -5,7 +5,7 @@ import 'package:football/services/api.dart';
 Future<List<Team>> fetchTeam(String name) async {
   return Team.fromJsonList(myList);
   // -----------------------------------------------
-  final ret = await api('teams?name=$name');
+  final ret = await api('teams?search=$name');
   if (ret == null) return [];
   return Team.fromJsonList(ret['response']);
 }

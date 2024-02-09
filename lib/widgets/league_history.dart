@@ -12,51 +12,62 @@ class LeagueHistory extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        // set color for column header
-
         child: DataTable(
-          border: TableBorder.all(color: Colors.black, width: 1),
+          border: TableBorder.all(color: Colors.white, width: 1),
+          // border: TableBorder.symmetric(
+          // outside: const BorderSide(color: Colors.black, width: 1)),
           headingRowColor: MaterialStateProperty.resolveWith((states) {
-            return Colors.white;
+            return Colors.orange;
           }),
           columns: <DataColumn>[
             const DataColumn(label: Center(child: Text('League'))),
             const DataColumn(
                 label: Center(
-              child: Text(
-                'name',
-                textAlign: TextAlign.center,
-              ),
+              child: Text('name'),
             )),
-            const DataColumn(label: Center(child: Text('Played'))),
-            const DataColumn(label: Center(child: Text('Goals'))),
-            const DataColumn(label: Center(child: Text('Assists'))),
-            const DataColumn(label: Center(child: Text('Rating'))),
+            const DataColumn(
+                label: Center(child: Text('Played')), numeric: true),
+            const DataColumn(
+                label: Center(child: Text('Goals')), numeric: true),
+            const DataColumn(
+                label: Center(child: Text('Assists')), numeric: true),
+            const DataColumn(
+                label: Center(child: Text('Rating')), numeric: true),
             DataColumn(
+                numeric: true,
                 label: Container(
-              color: Colors.yellow,
-              width: 15,
-              height: 20,
-            )),
+                  decoration: BoxDecoration(
+                    color: Colors.yellow,
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                  width: 15,
+                  height: 20,
+                )),
             DataColumn(
+                numeric: true,
                 label: Container(
-              color: Colors.red,
-              width: 15,
-              height: 20,
-            )),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    border: Border.all(color: Colors.black, width: 1),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                  width: 15,
+                  height: 20,
+                )),
           ],
           rows: statistics
               .map((e) => DataRow(
                       // use pair color for each row
                       color: MaterialStateProperty.resolveWith((states) {
                         return statistics.indexOf(e) % 2 == 0
-                            ? Colors.grey[200]
-                            : Colors.white;
+                            ? Colors.orange.shade50
+                            : Colors.orange.shade100;
                       }),
                       cells: [
                         DataCell(
                           CircleAvatar(
-                            backgroundImage: NetworkImage(e.league.logo),
+                            foregroundImage: NetworkImage(e.league.logo),
                           ),
                         ),
                         DataCell(

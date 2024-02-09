@@ -1,5 +1,245 @@
 const players = [
   {
+    "id": 20319,
+    "name": "N. Bishop",
+    "age": 22,
+    "number": 30,
+    "position": "Goalkeeper",
+    "photo": "https://media.api-sports.io/football/players/20319.png"
+  },
+  {
+    "id": 882,
+    "name": "David de Gea",
+    "age": 31,
+    "number": 1,
+    "position": "Goalkeeper",
+    "photo": "https://media.api-sports.io/football/players/882.png"
+  },
+  {
+    "id": 883,
+    "name": "L. Grant",
+    "age": 38,
+    "number": 13,
+    "position": "Goalkeeper",
+    "photo": "https://media.api-sports.io/football/players/883.png"
+  },
+  {
+    "id": 2931,
+    "name": "T. Heaton",
+    "age": 35,
+    "number": null,
+    "position": "Goalkeeper",
+    "photo": "https://media.api-sports.io/football/players/2931.png"
+  },
+];
+
+final playerId = {
+  "get": "players",
+  "parameters": {"id": "18487", "season": "2023"},
+  "errors": [],
+  "results": 1,
+  "paging": {"current": 1, "total": 1},
+  "response": [
+    {
+      "player": {
+        "id": 18487,
+        "name": "S. Quigley",
+        "firstname": "Scott David",
+        "lastname": "Quigley",
+        "age": 32,
+        "birth": {
+          "date": "1992-09-02",
+          "place": "Shrewsbury",
+          "country": "England"
+        },
+        "nationality": "England",
+        "height": "194 cm",
+        "weight": "88 kg",
+        "injured": false,
+        "photo": "https://media.api-sports.io/football/players/18487.png"
+      },
+      "statistics": [
+        {
+          "team": {
+            "id": 4686,
+            "name": "Stockport County",
+            "logo": "https://media.api-sports.io/football/teams/4686.png"
+          },
+          "league": {
+            "id": 42,
+            "name": "League Two",
+            "country": "England",
+            "logo": "https://media.api-sports.io/football/leagues/42.png",
+            "flag": "https://media.api-sports.io/flags/gb.svg",
+            "season": 2023
+          },
+          "games": {
+            "appearences": null,
+            "lineups": null,
+            "minutes": null,
+            "number": null,
+            "position": "Attacker",
+            "rating": null,
+            "captain": false
+          },
+          "substitutes": {"in": null, "out": null, "bench": null},
+          "shots": {"total": null, "on": null},
+          "goals": {
+            "total": null,
+            "conceded": null,
+            "assists": null,
+            "saves": null
+          },
+          "passes": {"total": null, "key": null, "accuracy": null},
+          "tackles": {"total": null, "blocks": null, "interceptions": null},
+          "duels": {"total": null, "won": null},
+          "dribbles": {"attempts": null, "success": null, "past": null},
+          "fouls": {"drawn": null, "committed": null},
+          "cards": {"yellow": null, "yellowred": null, "red": null},
+          "penalty": {
+            "won": null,
+            "commited": null,
+            "scored": null,
+            "missed": null,
+            "saved": null
+          }
+        },
+        {
+          "team": {
+            "id": 1822,
+            "name": "Eastleigh",
+            "logo": "https://media.api-sports.io/football/teams/1822.png"
+          },
+          "league": {
+            "id": 43,
+            "name": "National League",
+            "country": "England",
+            "logo": "https://media.api-sports.io/football/leagues/43.png",
+            "flag": "https://media.api-sports.io/flags/gb.svg",
+            "season": 2023
+          },
+          "games": {
+            "appearences": 23,
+            "lineups": 21,
+            "minutes": 1895,
+            "number": null,
+            "position": "Attacker",
+            "rating": null,
+            "captain": false
+          },
+          "substitutes": {"in": 2, "out": 1, "bench": 2},
+          "shots": {"total": null, "on": null},
+          "goals": {
+            "total": 9,
+            "conceded": null,
+            "assists": null,
+            "saves": null
+          },
+          "passes": {"total": null, "key": null, "accuracy": null},
+          "tackles": {"total": null, "blocks": null, "interceptions": null},
+          "duels": {"total": null, "won": null},
+          "dribbles": {"attempts": null, "success": null, "past": null},
+          "fouls": {"drawn": null, "committed": null},
+          "cards": {"yellow": 10, "yellowred": 0, "red": 0},
+          "penalty": {
+            "won": null,
+            "commited": null,
+            "scored": null,
+            "missed": null,
+            "saved": null
+          }
+        },
+        {
+          "team": {
+            "id": 1822,
+            "name": "Eastleigh",
+            "logo": "https://media.api-sports.io/football/teams/1822.png"
+          },
+          "league": {
+            "id": 47,
+            "name": "FA Trophy",
+            "country": "England",
+            "logo": "https://media.api-sports.io/football/leagues/47.png",
+            "flag": "https://media.api-sports.io/flags/gb.svg",
+            "season": 2023
+          },
+          "games": {
+            "appearences": 1,
+            "lineups": 1,
+            "minutes": 90,
+            "number": null,
+            "position": "Attacker",
+            "rating": null,
+            "captain": false
+          },
+          "substitutes": {"in": 0, "out": 0, "bench": 0},
+          "shots": {"total": null, "on": null},
+          "goals": {
+            "total": 0,
+            "conceded": null,
+            "assists": null,
+            "saves": null
+          },
+          "passes": {"total": null, "key": null, "accuracy": null},
+          "tackles": {"total": null, "blocks": null, "interceptions": null},
+          "duels": {"total": null, "won": null},
+          "dribbles": {"attempts": null, "success": null, "past": null},
+          "fouls": {"drawn": null, "committed": null},
+          "cards": {"yellow": 0, "yellowred": 0, "red": 0},
+          "penalty": {
+            "won": null,
+            "commited": null,
+            "scored": null,
+            "missed": null,
+            "saved": null
+          }
+        },
+        {
+          "team": {
+            "id": 1822,
+            "name": "Eastleigh",
+            "logo": "https://media.api-sports.io/football/teams/1822.png"
+          },
+          "league": {
+            "id": 45,
+            "name": "FA Cup",
+            "country": "England",
+            "logo": "https://media.api-sports.io/football/leagues/45.png",
+            "flag": "https://media.api-sports.io/flags/gb.svg",
+            "season": 2023
+          },
+          "games": {
+            "appearences": 5,
+            "lineups": 5,
+            "minutes": 450,
+            "number": null,
+            "position": "Attacker",
+            "rating": "6.200000",
+            "captain": false
+          },
+          "substitutes": {"in": 0, "out": 0, "bench": 0},
+          "shots": {"total": 1, "on": 1},
+          "goals": {"total": 0, "conceded": 0, "assists": 1, "saves": null},
+          "passes": {"total": 6, "key": 1, "accuracy": 3},
+          "tackles": {"total": null, "blocks": null, "interceptions": null},
+          "duels": {"total": 6, "won": null},
+          "dribbles": {"attempts": 1, "success": null, "past": null},
+          "fouls": {"drawn": null, "committed": 2},
+          "cards": {"yellow": 1, "yellowred": 0, "red": 0},
+          "penalty": {
+            "won": null,
+            "commited": null,
+            "scored": 0,
+            "missed": 0,
+            "saved": null
+          }
+        }
+      ]
+    }
+  ]
+};
+
+ /* {
     "player": {
       "id": 874,
       "name": "Cristiano Ronaldo",
@@ -260,245 +500,4 @@ const players = [
       }
     ]
   }
-];
-
-/* [
-  {
-    "id": 20319,
-    "name": "N. Bishop",
-    "age": 22,
-    "number": 30,
-    "position": "Goalkeeper",
-    "photo": "https://media.api-sports.io/football/players/20319.png"
-  },
-  {
-    "id": 882,
-    "name": "David de Gea",
-    "age": 31,
-    "number": 1,
-    "position": "Goalkeeper",
-    "photo": "https://media.api-sports.io/football/players/882.png"
-  },
-  {
-    "id": 883,
-    "name": "L. Grant",
-    "age": 38,
-    "number": 13,
-    "position": "Goalkeeper",
-    "photo": "https://media.api-sports.io/football/players/883.png"
-  },
-  {
-    "id": 2931,
-    "name": "T. Heaton",
-    "age": 35,
-    "number": null,
-    "position": "Goalkeeper",
-    "photo": "https://media.api-sports.io/football/players/2931.png"
-  },
 ]; */
-
-final playerId = {
-  "get": "players",
-  "parameters": {"id": "18487", "season": "2023"},
-  "errors": [],
-  "results": 1,
-  "paging": {"current": 1, "total": 1},
-  "response": [
-    {
-      "player": {
-        "id": 18487,
-        "name": "S. Quigley",
-        "firstname": "Scott David",
-        "lastname": "Quigley",
-        "age": 32,
-        "birth": {
-          "date": "1992-09-02",
-          "place": "Shrewsbury",
-          "country": "England"
-        },
-        "nationality": "England",
-        "height": "194 cm",
-        "weight": "88 kg",
-        "injured": false,
-        "photo": "https://media.api-sports.io/football/players/18487.png"
-      },
-      "statistics": [
-        {
-          "team": {
-            "id": 4686,
-            "name": "Stockport County",
-            "logo": "https://media.api-sports.io/football/teams/4686.png"
-          },
-          "league": {
-            "id": 42,
-            "name": "League Two",
-            "country": "England",
-            "logo": "https://media.api-sports.io/football/leagues/42.png",
-            "flag": "https://media.api-sports.io/flags/gb.svg",
-            "season": 2023
-          },
-          "games": {
-            "appearences": null,
-            "lineups": null,
-            "minutes": null,
-            "number": null,
-            "position": "Attacker",
-            "rating": null,
-            "captain": false
-          },
-          "substitutes": {"in": null, "out": null, "bench": null},
-          "shots": {"total": null, "on": null},
-          "goals": {
-            "total": null,
-            "conceded": null,
-            "assists": null,
-            "saves": null
-          },
-          "passes": {"total": null, "key": null, "accuracy": null},
-          "tackles": {"total": null, "blocks": null, "interceptions": null},
-          "duels": {"total": null, "won": null},
-          "dribbles": {"attempts": null, "success": null, "past": null},
-          "fouls": {"drawn": null, "committed": null},
-          "cards": {"yellow": null, "yellowred": null, "red": null},
-          "penalty": {
-            "won": null,
-            "commited": null,
-            "scored": null,
-            "missed": null,
-            "saved": null
-          }
-        },
-        {
-          "team": {
-            "id": 1822,
-            "name": "Eastleigh",
-            "logo": "https://media.api-sports.io/football/teams/1822.png"
-          },
-          "league": {
-            "id": 43,
-            "name": "National League",
-            "country": "England",
-            "logo": "https://media.api-sports.io/football/leagues/43.png",
-            "flag": "https://media.api-sports.io/flags/gb.svg",
-            "season": 2023
-          },
-          "games": {
-            "appearences": 23,
-            "lineups": 21,
-            "minutes": 1895,
-            "number": null,
-            "position": "Attacker",
-            "rating": null,
-            "captain": false
-          },
-          "substitutes": {"in": 2, "out": 1, "bench": 2},
-          "shots": {"total": null, "on": null},
-          "goals": {
-            "total": 9,
-            "conceded": null,
-            "assists": null,
-            "saves": null
-          },
-          "passes": {"total": null, "key": null, "accuracy": null},
-          "tackles": {"total": null, "blocks": null, "interceptions": null},
-          "duels": {"total": null, "won": null},
-          "dribbles": {"attempts": null, "success": null, "past": null},
-          "fouls": {"drawn": null, "committed": null},
-          "cards": {"yellow": 10, "yellowred": 0, "red": 0},
-          "penalty": {
-            "won": null,
-            "commited": null,
-            "scored": null,
-            "missed": null,
-            "saved": null
-          }
-        },
-        {
-          "team": {
-            "id": 1822,
-            "name": "Eastleigh",
-            "logo": "https://media.api-sports.io/football/teams/1822.png"
-          },
-          "league": {
-            "id": 47,
-            "name": "FA Trophy",
-            "country": "England",
-            "logo": "https://media.api-sports.io/football/leagues/47.png",
-            "flag": "https://media.api-sports.io/flags/gb.svg",
-            "season": 2023
-          },
-          "games": {
-            "appearences": 1,
-            "lineups": 1,
-            "minutes": 90,
-            "number": null,
-            "position": "Attacker",
-            "rating": null,
-            "captain": false
-          },
-          "substitutes": {"in": 0, "out": 0, "bench": 0},
-          "shots": {"total": null, "on": null},
-          "goals": {
-            "total": 0,
-            "conceded": null,
-            "assists": null,
-            "saves": null
-          },
-          "passes": {"total": null, "key": null, "accuracy": null},
-          "tackles": {"total": null, "blocks": null, "interceptions": null},
-          "duels": {"total": null, "won": null},
-          "dribbles": {"attempts": null, "success": null, "past": null},
-          "fouls": {"drawn": null, "committed": null},
-          "cards": {"yellow": 0, "yellowred": 0, "red": 0},
-          "penalty": {
-            "won": null,
-            "commited": null,
-            "scored": null,
-            "missed": null,
-            "saved": null
-          }
-        },
-        {
-          "team": {
-            "id": 1822,
-            "name": "Eastleigh",
-            "logo": "https://media.api-sports.io/football/teams/1822.png"
-          },
-          "league": {
-            "id": 45,
-            "name": "FA Cup",
-            "country": "England",
-            "logo": "https://media.api-sports.io/football/leagues/45.png",
-            "flag": "https://media.api-sports.io/flags/gb.svg",
-            "season": 2023
-          },
-          "games": {
-            "appearences": 5,
-            "lineups": 5,
-            "minutes": 450,
-            "number": null,
-            "position": "Attacker",
-            "rating": "6.200000",
-            "captain": false
-          },
-          "substitutes": {"in": 0, "out": 0, "bench": 0},
-          "shots": {"total": 1, "on": 1},
-          "goals": {"total": 0, "conceded": 0, "assists": 1, "saves": null},
-          "passes": {"total": 6, "key": 1, "accuracy": 3},
-          "tackles": {"total": null, "blocks": null, "interceptions": null},
-          "duels": {"total": 6, "won": null},
-          "dribbles": {"attempts": 1, "success": null, "past": null},
-          "fouls": {"drawn": null, "committed": 2},
-          "cards": {"yellow": 1, "yellowred": 0, "red": 0},
-          "penalty": {
-            "won": null,
-            "commited": null,
-            "scored": 0,
-            "missed": 0,
-            "saved": null
-          }
-        }
-      ]
-    }
-  ]
-};
