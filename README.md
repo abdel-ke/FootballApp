@@ -30,3 +30,4 @@ To run the Football App on your local machine, follow these steps:
 ![Alt text](/screenshots/playerInformation.png?raw=true "player information")
 ![Alt text](/screenshots/playerInformation2.png?raw=true "player information")
 
+![Alt text](/screenshots/footballApp.gif?raw=true "Football App")
