@@ -24,8 +24,9 @@ To run the Football App on your local machine, follow these steps:
 
 ## Screenshots
 
-![Alt text](/screenShots/searchPage.png?raw=true "search page")
-![Alt text](/screenShots/teamsList.png?raw=true "teamss list")
-![Alt text](/screenShots/teamInformation.png?raw=true "team information")
-![Alt text](/screenShots/playerInformation.png?raw=true "player information")
-![Alt text](/screenShots/playerInformation2.png?raw=true "player information")
+![Alt text](/screenshots/searchPage.png?raw=true "search page")
+![Alt text](/screenshots/teamsList.png?raw=true "teamss list")
+![Alt text](/screenshots/teamInformation.png?raw=true "team information")
+![Alt text](/screenshots/playerInformation.png?raw=true "player information")
+![Alt text](/screenshots/playerInformation2.png?raw=true "player information")
+
