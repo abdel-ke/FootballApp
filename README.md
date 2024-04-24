@@ -24,10 +24,10 @@ To run the Football App on your local machine, follow these steps:
 
 ## Screenshots
 <div style="display: flex; flex-direction: 'row';">
-<img src="./screenshots/searchPage.png" width=20%>
-<img src="./screenshots/teamsList.png" width=20%>
-<img src="./screenshots/teamInformation.png" width=20%>
-<img src="./screenshots/playerInformation.png" width=20%>
-<img src="./screenshots/playerInformation2.png" width=20%>
-<img src="./screenshots/footballApp.png" width=20%>
+<img src="./screenshots/searchPage.png" width=15%>
+<img src="./screenshots/teamsList.png" width=15%>
+<img src="./screenshots/teamInformation.png" width=15%>
+<img src="./screenshots/playerInformation.png" width=15%>
+<img src="./screenshots/playerInformation2.png" width=15%>
+<img src="./screenshots/footballApp.png" width=15%>
 </div>
