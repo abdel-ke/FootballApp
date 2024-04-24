@@ -23,11 +23,11 @@ To run the Football App on your local machine, follow these steps:
 8. Run `flutter run` to launch the application.
 
 ## Screenshots
-
-![Alt text](/screenshots/searchPage.png?raw=true "search page")
-![Alt text](/screenshots/teamsList.png?raw=true "teamss list")
-![Alt text](/screenshots/teamInformation.png?raw=true "team information")
-![Alt text](/screenshots/playerInformation.png?raw=true "player information")
-![Alt text](/screenshots/playerInformation2.png?raw=true "player information")
-
-![Alt text](/screenshots/footballApp.gif?raw=true "Football App")
+<div style="display: flex; flex-direction: 'row';">
+<img src="./screenshots/searchPage.png" width=20%>
+<img src="./screenshots/teamsList.png" width=20%>
+<img src="./screenshots/teamInformation.png" width=20%>
+<img src="./screenshots/playerInformation.png" width=20%>
+<img src="./screenshots/playerInformation2.png" width=20%>
+<img src="./screenshots/footballApp.png" width=20%>
+</div>
