@@ -32,4 +32,3 @@ To run the Football App on your local machine, follow these steps:
 <img src="./screenshots/footballApp.gif" width=15%>
 </div>
 
-
